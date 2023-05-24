@@ -60,13 +60,33 @@ a {
 }
 
 .menu__item-link {
+  position: relative;
   color: #444444;
   font-size: 13px;
   line-height: 1.08em;
 }
 
+.menu__item-link:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  /* направление подчёркивания слева-направо */
+  width: 0;
+  /*длина линии до наведения курсора*/
+  height: 1px;
+  background: #444444;
+  content: "";
+  transition: width 0.3s ease-out;
+  margin-top: 3px;
+}
+
 .menu__item-link_active {
   color: #444444;
+}
+
+.menu__item-link:hover:after,
+.menu__item-link:focus:after {
+  width: 100%;
 }
 
 .btn {
@@ -104,10 +124,15 @@ a {
   background: url(../icons/iconArrow.svg);
   margin-left: 6px;
   display: inline-block;
+  color: #575445;
 }
 
 .section-link:visited {
   color: #575445;
+}
+
+.section-link:active {
+  color: #292C32
 }
 
 .header {
